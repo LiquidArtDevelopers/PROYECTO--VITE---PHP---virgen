@@ -44,7 +44,7 @@
       >
       <div class="header01__content">
         <p class="header01__eyebrow">Pintura y restauración · Usurbil y Donostialdea</p>
-        <h1>Patxi, pintor y restaurador de muebles en Donostialdea</h1>
+        <h1>Proyectos virgen con VITE - PHP</h1>
         <p class="header01__text">Renueva una vivienda, una comunidad o un pequeño negocio, o recupera ese mueble que quieres seguir disfrutando. Trato directo y un trabajo planteado según lo que realmente necesita cada encargo.</p>
         <a href="<?= url('/es/contacto') ?>" class="boton" title="Pedir presupuesto a Patxi">Pedir presupuesto</a>
       </div>
