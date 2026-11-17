@@ -5,10 +5,10 @@ const root = process.cwd();
 const dist = resolve(root, "dist");
 
 if (!dist.startsWith(root)) {
-  throw new Error(`Ruta dist fuera del proyecto: ${dist}`);
+    throw new Error(`Ruta dist fuera del proyecto: ${dist}`);
 }
 
 rmSync(dist, {
-  recursive: true,
-  force: true,
+    recursive: true,
+    force: true,
 });

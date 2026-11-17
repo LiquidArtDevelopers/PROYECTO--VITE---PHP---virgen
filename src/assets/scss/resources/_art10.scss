@@ -1,21 +1,21 @@
-@use 'config' as c;
+@use "config" as c;
 
-.art10{
+.art10 {
     width: 100%;
     padding: c.$padMin;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    row-gap: 2rem;    
-    @media only screen and (min-width:c.$tablet){
+    row-gap: 2rem;
+    @media only screen and (min-width: c.$tablet) {
         row-gap: 2rem;
     }
-    @media only screen and (min-width:c.$desktop){
+    @media only screen and (min-width: c.$desktop) {
         width: 60%;
         row-gap: 4rem;
     }
-    .matrix-items{
+    .matrix-items {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -23,32 +23,31 @@
         justify-content: center;
         align-items: flex-start;
         gap: 1rem;
-        @media only screen and (min-width:c.$tablet){
+        @media only screen and (min-width: c.$tablet) {
             gap: 2rem;
         }
-        .ficha{
+        .ficha {
             // background-color: aqua;
             width: 47%;
             display: flex;
             flex-direction: column;
             row-gap: 1rem;
-            @media only screen and (min-width:c.$tablet){
+            @media only screen and (min-width: c.$tablet) {
                 width: 31%;
             }
-            .sub-header{
+            .sub-header {
                 color: c.$color03;
             }
-            img{
-               width: 30px;
-               @media only screen and (min-width:c.$tablet){
+            img {
+                width: 30px;
+                @media only screen and (min-width: c.$tablet) {
                     width: 50px;
                 }
             }
-            p{
+            p {
                 font-size: clamp(0.7rem, 3vw, 1rem);
                 color: c.$color01;
             }
         }
     }
 }
-

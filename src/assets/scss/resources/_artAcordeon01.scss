@@ -1,6 +1,6 @@
-@use 'config' as c;
+@use "config" as c;
 
-.artAcordeon01{
+.artAcordeon01 {
     width: 100%;
     padding: 0 1.5rem;
 
@@ -10,45 +10,44 @@
     justify-content: flex-start;
     row-gap: 2rem;
 
-    @media only screen and (min-width:c.$desktop){
+    @media only screen and (min-width: c.$desktop) {
         width: 80%;
         padding: initial;
     }
 
-    .cabecera{       
+    .cabecera {
         width: 100%;
         display: flex;
         flex-direction: column;
         row-gap: 1.5rem;
-        @media only screen and (min-width:c.$tablet){
+        @media only screen and (min-width: c.$tablet) {
             width: 80%;
             flex-direction: row;
-            align-items: center;   
+            align-items: center;
             row-gap: initial;
-            column-gap: 2rem;         
+            column-gap: 2rem;
         }
 
-        >:nth-child(1){
+        > :nth-child(1) {
             width: 100%;
             display: flex;
             flex-direction: column;
             row-gap: 2rem;
-            @media only screen and (min-width:c.$tablet){
+            @media only screen and (min-width: c.$tablet) {
                 width: 50%;
             }
         }
-        >img{
+        > img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            @media only screen and (min-width:c.$tablet){
+            @media only screen and (min-width: c.$tablet) {
                 width: 50%;
             }
         }
-
     }
 
-    .contenedor{
+    .contenedor {
         // background-color: aquamarine;
         width: 100%;
 
@@ -58,51 +57,50 @@
         gap: 1.5rem;
         flex-wrap: wrap;
         align-items: flex-start;
-        @media only screen and (min-width:c.$desktop){
+        @media only screen and (min-width: c.$desktop) {
             gap: 3rem;
         }
 
-        .ficha{
+        .ficha {
             background-color: c.$color00bis;
             width: 90%;
-            padding: 1.5rem;            
+            padding: 1.5rem;
 
             display: flex;
             flex-direction: column;
             row-gap: 1.5rem;
             align-items: center;
 
-            @media only screen and (min-width:c.$tablet){
+            @media only screen and (min-width: c.$tablet) {
                 width: 40%;
-                min-width: 350px
+                min-width: 350px;
             }
-            @media only screen and (min-width:c.$desktop){
+            @media only screen and (min-width: c.$desktop) {
                 width: 28%;
-                min-width: 400px
+                min-width: 400px;
             }
 
-            >:nth-child(1){
+            > :nth-child(1) {
                 font-size: clamp(1.2rem, 3vw, 1.4rem);
                 color: c.$color02;
             }
 
-            >p{
+            > p {
                 height: 0;
                 overflow: hidden;
                 opacity: 0;
-                transition: ease-in-out .5s;
+                transition: ease-in-out 0.5s;
                 interpolate-size: allow-keywords;
-                &::-webkit-scrollbar{
+                &::-webkit-scrollbar {
                     display: none;
                 }
             }
-            .open{
+            .open {
                 height: auto;
                 max-height: 400px;
                 overflow-y: scroll;
                 opacity: 1;
             }
-
         }
     }
 }

@@ -1,21 +1,21 @@
-@use 'config' as c;
+@use "config" as c;
 
 // todo el css de el artículo 02
 
-.art02{
+.art02 {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     row-gap: 2rem;
-    @media only screen and (min-width:c.$desktop){
-        &{
+    @media only screen and (min-width: c.$desktop) {
+        & {
             width: 80%;
             row-gap: 4rem;
         }
     }
-    .textos{
+    .textos {
         width: 100%;
         padding: c.$padMin;
         display: flex;
@@ -23,45 +23,41 @@
         align-items: center;
         justify-content: flex-start;
         row-gap: 1.5rem;
-        @media only screen and (min-width:c.$tablet){
-            &{
+        @media only screen and (min-width: c.$tablet) {
+            & {
                 width: 80%;
                 row-gap: 2rem;
             }
         }
-        @media only screen and (min-width:c.$desktop){
-            &{
+        @media only screen and (min-width: c.$desktop) {
+            & {
                 width: 60%;
                 row-gap: 2.5rem;
             }
         }
     }
 
-    .imagenes{
+    .imagenes {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         gap: 1rem;
-        
+
         flex-wrap: wrap;
 
-        >img{
+        > img {
             width: 100%;
             height: 30dvh;
             object-fit: cover;
             object-position: center;
-            @media only screen and (min-width:c.$tablet){
-                &{
+            @media only screen and (min-width: c.$tablet) {
+                & {
                     width: 32%;
                     height: calc(32dvw * 0.8);
                 }
             }
         }
     }
-
-    
-    
 }
-

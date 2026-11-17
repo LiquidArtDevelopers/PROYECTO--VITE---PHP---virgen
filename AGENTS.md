@@ -15,6 +15,8 @@ Las skills se complementan: crear un recurso con texto requiere revisar también
 
 ## Reglas comunes
 
+- Indentar el código con 4 espacios por nivel, sin tabuladores, de acuerdo con `.editorconfig`. Mantener este criterio también en las vistas PHP con HTML y en los nuevos recursos.
+
 - El HTML de un recurso nuevo se muestra primero en `App/views/showroom.php`. Su SCSS se importa desde `src/assets/scss/showroom.scss`; si necesita comportamiento, su JS se importa e inicializa desde `src/assets/js/showroom.js`.
 - Un recurso no es una nueva ruta ni una nueva entrada de Vite. Las entradas son por vista.
 - En páginas de contenido: un H1 principal; dentro de `main`, secciones temáticas con H2 y artículos dentro de ellas con H3. Los módulos menores heredan el contexto y no introducen encabezados por estética. No cambiar el rango de un encabezado para ajustar su aspecto.

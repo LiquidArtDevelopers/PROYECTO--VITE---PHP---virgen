@@ -1,6 +1,6 @@
-@use 'config' as c;
+@use "config" as c;
 
-.moduloLoader01{
+.moduloLoader01 {
     display: none;
     position: absolute;
     z-index: 100;
@@ -10,5 +10,5 @@
     width: 100px;
     height: 100px;
     object-fit: contain;
-    filter: c.$color02svg
+    filter: c.$color02svg;
 }

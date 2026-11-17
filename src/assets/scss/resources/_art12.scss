@@ -1,6 +1,6 @@
-@use 'config' as c;
+@use "config" as c;
 
-.art12{
+.art12 {
     width: 100%;
     padding: c.$padMin;
     display: flex;
@@ -8,21 +8,21 @@
     align-items: center;
     justify-content: flex-start;
     row-gap: 2rem;
-    @media only screen and (min-width:c.$tablet){
+    @media only screen and (min-width: c.$tablet) {
         row-gap: 3rem;
     }
-    
-    >p{
+
+    > p {
         width: 100%;
-        @media only screen and (min-width:c.$tablet){
+        @media only screen and (min-width: c.$tablet) {
             width: 80%;
         }
-        @media only screen and (min-width:c.$desktop){
+        @media only screen and (min-width: c.$desktop) {
             width: 60%;
         }
     }
 
-    >div{
+    > div {
         // background-color: aqua;
         width: 100%;
         display: flex;
@@ -32,7 +32,7 @@
         align-items: stretch;
         gap: 2rem;
 
-        .ficha{
+        .ficha {
             width: 300px;
             background-color: c.$color00bis;
             padding: c.$padMin;
@@ -42,7 +42,7 @@
             align-items: center;
             row-gap: 1.5rem;
 
-            >img{
+            > img {
                 width: 60%;
                 aspect-ratio: 1 / 1;
                 object-fit: cover;
@@ -50,23 +50,22 @@
                 border-radius: 50%;
             }
 
-            >div{
+            > div {
                 width: 100%;
-                
+
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 row-gap: 1rem;
 
-                >:nth-child(3){
+                > :nth-child(3) {
                     width: 100%;
-                    text-align: left;                                     
+                    text-align: left;
                 }
-                :nth-last-child(1){
-                    color:c.$color01bis;
+                :nth-last-child(1) {
+                    color: c.$color01bis;
                 }
             }
-
         }
     }
 }

@@ -8,6 +8,6 @@ import artSlider from "./resources/_artSlider.js";
 import { artAcordeon01 } from "./resources/_artAcordeon01.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  artAcordeon01();
-  artSlider();
+    artAcordeon01();
+    artSlider();
 });

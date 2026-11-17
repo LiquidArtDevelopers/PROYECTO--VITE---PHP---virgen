@@ -1,44 +1,44 @@
-@use 'config' as c;
+@use "config" as c;
 
-.art13{
+.art13 {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding: c.$padMin;
-    @media only screen and (min-width:c.$tablet){
+    @media only screen and (min-width: c.$tablet) {
         width: 90%;
         padding: initial;
-        &.upsidedown{
-            >img{
+        &.upsidedown {
+            > img {
                 order: 1;
             }
-            >div{
+            > div {
                 order: 0;
             }
         }
     }
-    @media only screen and (min-width:c.$desktop){
+    @media only screen and (min-width: c.$desktop) {
         flex-direction: row;
         justify-content: center;
         align-items: stretch;
         width: 80%;
     }
-    
-    >img{
+
+    > img {
         border-radius: 10px;
         width: 100%;
         height: 40dvh;
         object-fit: cover;
         object-position: center;
-        @media only screen and (min-width:c.$desktop){
+        @media only screen and (min-width: c.$desktop) {
             width: 60%;
             height: auto;
             max-height: 60dvh;
         }
     }
-    >div{
+    > div {
         width: 100%;
         padding: c.$padMin;
         display: flex;
@@ -46,27 +46,27 @@
         justify-content: flex-start;
         align-items: flex-start;
         row-gap: 2rem;
-        @media only screen and (min-width:c.$tablet){
+        @media only screen and (min-width: c.$tablet) {
             width: 90%;
         }
-        @media only screen and (min-width:c.$desktop){
+        @media only screen and (min-width: c.$desktop) {
             width: 40%;
         }
-        >h2{
+        > h2 {
             color: c.$color02;
             font-size: clamp(1.4rem, 2.5vw, 2.2rem);
             letter-spacing: 2px;
         }
-        >:nth-child(1){
+        > :nth-child(1) {
             order: 1;
         }
-        >:nth-child(2){
+        > :nth-child(2) {
             order: 2;
         }
-        >:nth-child(3){
-        order: 4; 
+        > :nth-child(3) {
+            order: 4;
         }
-        >:nth-child(4){
+        > :nth-child(4) {
             order: 3;
         }
     }
