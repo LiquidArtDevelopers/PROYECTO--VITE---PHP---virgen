@@ -1,9 +1,4 @@
-# Se permite rastrear la web publica y se bloquean las rutas tecnicas.
 User-agent: *
-Allow: /
-Disallow: /showroom
-Disallow: /app/
-Disallow: /es/404
-Disallow: /eu/404
+Disallow: /
 
-Sitemap: https://cw-profe.webda.eus/sitemap.xml
+# Base de formación: permitir indexación y configurar sitemap al publicar.

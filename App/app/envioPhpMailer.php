@@ -56,11 +56,6 @@ try {
     $mail->Body = $cuerpo;
     $mail->AltBody = $cuerpoTexto ?? 'Mensaje enviado desde el formulario de la web.';
 
-    $logo = $basePath . '/App/app/img/logo.png';
-    if (is_file($logo)) {
-        $mail->addEmbeddedImage($logo, 'logo');
-    }
-
     $envioCorreoOk = $mail->send();
 } catch (Throwable $exception) {
     // No imprimimos errores porque romperian la respuesta JSON del formulario.

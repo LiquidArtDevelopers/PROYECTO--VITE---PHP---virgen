@@ -5,6 +5,12 @@ description: Configurar despliegues portables con GitHub Actions para proyectos 
 
 # Deploy GitHub Actions Para Vite Por SSH
 
+## Particularidades de este repositorio
+
+Antes de aplicar las plantillas genéricas, leer `Readme.md` y `.codex/skills/stack-workflow/SKILL.md`. Este stack genera la carpeta pública en `dist/`, no en `public/`: el artefacto público a desplegar es el contenido de `dist/`, incluidos `.htaccess` y `.vite/manifest.json`. `App/`, `vendor/` y `.env` deben quedar en la carpeta inmediatamente superior a la pública. No publicar el `public/` fuente sin los bundles ni colocar la aplicación privada dentro del document root. Usar `APP_ENV=production` y `RUTA` con la URL pública real.
+
+Estas instrucciones locales prevalecen sobre valores como `LOCAL_PUBLIC_DIR=public` de los ejemplos de otras variantes. Si solo se solicita documentación o revisión de las skills, no iniciar SSH, generar claves ni ejecutar un despliegue.
+
 Usa esta skill para guiar al agente, en orden, al configurar deploy automático para proyectos Vite en un servidor accesible por SSH.
 
 Variantes soportadas:

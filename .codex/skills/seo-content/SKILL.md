@@ -1,97 +1,124 @@
 ---
 name: seo-content
-description: Redaccion, revision y planificacion de contenido SEO del proyecto, incluyendo titles, meta descriptions, H1/H2/H3, ALT, copy on-page, arquitectura de keywords por URL e idioma, comprobaciones contra canibalizacion, topónimos, intención de búsqueda, tono, datos confirmados y limites de extension. Use esta skill cuando Codex deba crear, auditar o ajustar textos orientados a posicionamiento organico en este repositorio.
+description: Planificar, redactar o revisar contenido y HTML editorial de las páginas es/eu de este stack, con intención por URL, prevención de canibalización, jerarquía H1/H2/H3, metadatos e imágenes y enlaces descriptivos.
 ---
 
-# SEO Content
+# Contenido y estructura SEO del stack
 
-## Flujo obligatorio
+## Alcance y datos
 
-1. Usa esta skill como fuente principal de instrucciones SEO del repositorio.
-2. Reutiliza solo datos confirmados del cliente: servicios, valores, partners, coberturas, textos comerciales, direcciones, telefonos, correos y fechas.
-3. Busca esos datos en el codigo, JSON de idiomas, contenidos existentes o documentacion vigente del proyecto. Si no aparecen, tratalos como no confirmados.
-4. Revisa los controladores PHP relacionados con la ruta o recurso solicitado y respeta los comentarios de minimos y maximos de palabras o caracteres.
-5. Si falta informacion clave, marcala como pendiente y solicita confirmacion. No inventes servicios, ubicaciones, telefonos, correos, fechas, coberturas ni claims.
-6. Si el cliente valida informacion nueva, documentala donde el proyecto guarde su contenido vigente antes de reutilizarla en otros textos.
+Aplicar al crear páginas de contenido, organizar sus secciones o redactar/revisar copy, encabezados y metadatos. Consultar `stack-resources` para construir un componente y `stack-workflow` para rutas y entradas. No aplicar una auditoría de publicación completa a una tarea de estilos o infraestructura que conserve deliberadamente lorem ipsum.
 
-## Arquitectura SEO
+Esta base es un ejercicio sin cliente real. No inventar servicios, ubicaciones, direcciones, teléfonos, correos, certificaciones, cifras, fechas ni claims. En un proyecto de cliente, leer primero sus datos confirmados y los comentarios de extensión de vistas/controladores. Si falta un dato imprescindible, pedirlo; seguir con las partes independientes y mantener el resto como pendiente. No usar contenidos de otro proyecto como datos del actual.
 
-Cuando una URL o idioma no tenga directrices suficientes, define o propone primero su arquitectura SEO antes de generar el copy asociado.
+## Finalidad y terminología por página
 
-Documenta por cada URL e idioma estos 4 vectores:
+Antes de redactar una web real, dejar una matriz por URL e idioma con:
 
-- Servicio, solucion o producto.
-- Atributos diferenciadores.
-- Finalidad, aplicacion o sector.
-- Localidad.
+| Campo | Qué define |
+| --- | --- |
+| Finalidad | Qué necesidad resuelve la página y qué acción permite realizar |
+| Intención de búsqueda | Informativa, comercial, transaccional o de marca según el caso |
+| Terminología principal | Tema o grupo de búsquedas que corresponde a esa URL |
+| Vectores | Servicio/producto, atributos, finalidad/aplicación/sector y localidad si procede |
+| Alcance | Qué desarrolla esta página y qué delega a otra URL mediante un enlace |
+| Páginas relacionadas | Posibles solapamientos y URL que concentra el desarrollo específico |
 
-Explica cualquier matiz necesario para evitar canibalizaciones y para que el contenido respete la intencion de busqueda objetivo.
+Una URL debe tener una finalidad principal reconocible. No orientar inicio, catálogo y ficha de servicio a la misma intención con copias de title, H1 y cuerpo. Inicio presenta la propuesta general; servicios permite descubrir/comparar; cada ficha desarrolla su servicio; quiénes somos presenta al equipo; contacto facilita el contacto. Adaptar el reparto al encargo real.
 
-## Topónimos
+Mencionar un servicio en varias páginas es normal. Evitar canibalización diferenciando intención, profundidad y enlaces, no prohibiendo vocabulario compartido. Enlazar desde el resumen a la ficha específica, sin reproducir toda la ficha en inicio y servicios. No crear páginas casi idénticas cambiando solo el municipio o la palabra clave.
 
-Limita cada vector de localidad a un maximo de 3 topónimos por URL e idioma:
+Usar topónimos solo con cobertura confirmada. Como orientación editorial, concentrar el foco geográfico en hasta tres topónimos relevantes, sin enumerar territorios artificialmente. Compartir una localidad entre inicio y una ficha no demuestra por sí solo canibalización. No forzar provincias o localidades en búsquedas sin intención local.
 
-- Incluye 1 topónimo macroterritorial: provincia, departamento o region amplia.
-- Incluye 1 o 2 topónimos locales: municipio, comarca o zona especifica.
-- No repitas la misma combinacion exacta de topónimos en distintas URLs del mismo idioma.
+## Jerarquía HTML del proyecto
 
-Distingue entre topónimos que definen la URL y topónimos que amplian el alcance territorial.
+Convención didáctica para páginas nuevas y bloques editoriales modificados; no obliga a refactorizar todo el HTML antiguo como parte de otra tarea.
 
-## Redaccion SEO
+- Un solo `main` visible y un H1 principal por página. El H1 puede estar en la cabecera principal, como en las vistas actuales.
+- Dentro de `main`, separar los temas en `section`. Cada sección temática tiene su H2, preferiblemente asociado mediante `aria-labelledby` y un ID único.
+- Dentro de cada sección, usar tantos `article` como unidades de información con sentido propio necesite el tema. Cada artículo tiene su H3; sus subapartados usan H4 cuando se necesiten.
+- Puede haber párrafos introductorios directamente bajo el H2. No convertir cada párrafo, botón, imagen o envoltorio visual en artículo o sección: para agrupar diseño, usar `div`.
+- Los módulos menores respetan su contexto y no crean encabezados por estética. Un artículo no vuelve a empezar en H1 por estar dentro de otra etiqueta.
+- No saltar de H2 a H4 ni elegir el rango por su tamaño. Ajustar CSS y revisar selectores dependientes de `h2`/`h3` al adaptar un recurso.
+- Los H2 de navegación y pie pertenecen a sus regiones; no confundirlos con secciones del contenido principal.
 
-Redacta contenido util, fiable y pensado para personas.
+```html
+<header class="header01">
+  <h1>Servicio principal de esta página</h1>
+</header>
+<main>
+  <section aria-labelledby="alcance-title">
+    <h2 id="alcance-title">Qué incluye el servicio</h2>
+    <article aria-labelledby="prestacion-uno-title">
+      <h3 id="prestacion-uno-title">Primera prestación</h3>
+      <p>Información concreta sobre esta prestación.</p>
+    </article>
+    <article aria-labelledby="prestacion-dos-title">
+      <h3 id="prestacion-dos-title">Segunda prestación</h3>
+      <p>Información diferente que amplía la misma sección.</p>
+    </article>
+  </section>
+  <section aria-labelledby="proceso-title">
+    <h2 id="proceso-title">Cómo trabajamos</h2>
+    <article aria-labelledby="fase-uno-title">
+      <h3 id="fase-uno-title">Preparación del trabajo</h3>
+      <p>Información de la fase.</p>
+    </article>
+  </section>
+</main>
+```
 
-- Satisface la intencion de busqueda de principio a fin.
-- Usa los keywords de los vectores correspondientes con naturalidad.
-- Añade 3-6 variantes semanticas o entidades relacionadas para los vectores de servicio, atributos y finalidad.
-- No uses porcentajes de densidad.
-- Evita keyword stuffing en texto, titulos, metas, ALT, anchors y listados.
-- No repitas una misma palabra mas de dos veces seguidas en un parrafo.
-- Usa sinonimos y variaciones para mantener fluidez.
-- Mantén un tono cercano, educativo y profesional.
-- Dirigete de tu a tu al usuario final y a su empresa.
-- Combina lenguaje tecnico con explicaciones claras para publico no especializado.
-- Sustenta afirmaciones con datos, citas o referencias verificables cuando proceda.
-- Destaca en negrita solo algunas keywords dentro de bloques introductorios. No uses negrita en titulos ni abuses de ella.
+## Escalado de una terminología entre páginas
 
-## Elementos on-page
+Ejemplo didáctico «Diseño web», sin convertirlo en un servicio confirmado de esta base:
 
-Comprueba estos elementos cuando redactes o audites una pagina:
+| Página | Contexto | Encabezado del servicio |
+| --- | --- | --- |
+| Inicio | H1 general → H2 Servicios → artículo de resumen | H3 Diseño web |
+| Servicios | H1 del conjunto → sección del servicio | H2 Diseño web; artículos con H3 para prestaciones o diferencias |
+| Ficha específica | El servicio es el tema central | H1 Diseño web; H2 para sus temas y H3 para sus artículos |
 
-- `title`: unico, persuasivo y de 60-65 caracteres como maximo.
-- `meta description`: atractiva y orientada a clic, sin repetir keywords de forma artificial.
-- `H1`: unico, coherente con el title y con la propuesta de valor en las primeras 100 palabras.
-- Topónimo principal: incluyelo en las primeras 100 palabras si aplica.
-- `H2`/`H3`: añade 1-2 encabezados relevantes que organicen el contenido y respondan busquedas relacionadas.
-- Parrafos: cortos, escaneables y apoyados en listas, tablas, resumenes ejecutivos o bloques destacados cuando mejore la lectura.
-- Comparativas, pros/contras y ejemplos: incluyelos cuando ayuden a explicar la propuesta.
-- Anchors: usa textos descriptivos que aporten contexto.
-- ALT: añade descripciones reales a 1-2 imagenes clave cuando proceda y varia el vocabulario.
-- Recursos visuales o multimedia: proponlos cuando sean relevantes y explica su funcion dentro del copy.
+El escalado refleja la importancia contextual y la profundidad de cada URL. No garantiza posicionamiento ni justifica repetir el mismo texto. Cada documento debe tener su propia jerarquía válida.
 
-## Multidioma
+## Metadatos y atributos
 
-Mantén coherencia semantica y estructural entre idiomas, pero adapta expresiones, referencias, topónimos y matices culturales al idioma concreto. No traduzcas literalmente si perjudica la intencion de busqueda o la naturalidad.
+Rangos editoriales del curso para páginas reales, contando espacios y signos. Si el rango perjudica claridad o naturalidad, explicar la excepción; no rellenar con palabras vacías. Las páginas técnicas 404, el showroom y los placeholders de la base no se evalúan como copy de publicación.
 
-## Zonas rojas
+| Elemento | Criterio de trabajo |
+| --- | --- |
+| `title` | Único por URL/idioma; mínimo orientativo de 50 y máximo de 65 caracteres. Tema principal y marca cuando aporte contexto |
+| `meta description` | Única; mínimo orientativo de 140 y máximo de 160 caracteres. Valor, finalidad e invitación pertinente |
+| H1 | Único, legible y coherente con title e intención; sin longitud mínima artificial |
+| Canonical | URL absoluta de la propia versión indexable; revisar dominio, HTTPS y subcarpeta |
+| Hreflang | Alternativas es/eu recíprocas de la misma página; `x-default` coherente con el idioma por defecto |
+| Open Graph/Twitter | Título, descripción, URL e imagen correspondientes a la página; imagen pública y existente |
+| `html lang` | `es` o `eu` según la vista |
 
-Evita de forma taxativa:
+Google no fija estos mínimos de caracteres y puede truncar o generar sus textos según la presentación y la búsqueda. Son criterios editoriales locales, no requisitos del buscador ni garantías de visibilidad.
 
-- Keyword stuffing.
-- Doorway pages o contenido producido a escala sin valor real.
-- Texto oculto, cloaking o datos estructurados engañosos.
-- Abuso de reputacion del sitio.
-- Reutilizacion de dominios caducados con fines manipulativos.
-- Datos no verificados o afirmaciones no sustentadas.
-- Contenido que comprometa fiabilidad, utilidad o experiencia de usuario.
+- Todas las imágenes llevan `alt`. En imágenes informativas, describir lo mostrado y su función en el idioma de la vista; no usar el nombre del archivo ni keywords ajenas a la imagen. Decorativos e iconos redundantes: `alt=""` y, si procede, `aria-hidden="true"`.
+- Cumplimentar `title` descriptivo en las imágenes informativas y los enlaces según la convención del curso. No usar «imagen», «clic aquí» o «Lorem ipsum» en una web real. Los decorativos no necesitan title significativo.
+- `title` no sustituye a `alt`, al texto visible del enlace o al nombre accesible del control. No poner información necesaria solo en un tooltip.
+- Texto del enlace y `title` describen destino/acción sin acumular keywords. No dejar `href="#"` como destino en producción.
+- Mantener dimensiones reales, formatos apropiados y carga diferida en imágenes secundarias; no diferir la imagen principal.
 
-## Revision antes de entregar
+## Redacción y multidioma
 
-Antes de finalizar, verifica:
+Satisfacer la intención con contenido útil y datos comprobados. Usar variantes semánticas naturales, párrafos claros y listas/tablas cuando ayuden. No imponer densidades de keywords ni repetir términos, topónimos o negritas mecánicamente. No crear páginas de relleno, texto oculto ni datos estructurados engañosos.
 
-- Que el contenido respeta los limites de extension del recurso.
-- Que no hay claims ni datos inventados.
-- Que la URL e idioma tienen vectores SEO definidos.
-- Que los topónimos no canibalizan otra URL.
-- Que el copy cubre la intencion de busqueda.
-- Que metas, headings, anchors y ALT son naturales y no sobreoptimizados.
+Mantener equivalencia semántica es/eu adaptando vocabulario y búsquedas a cada idioma. Revisar metas y atributos de ambas versiones; no dejar títulos españoles en la vista vasca. Una traducción equivalente no es por sí misma canibalización entre páginas del mismo idioma.
+
+## Revisión
+
+Comprobar finalidad por URL, diferenciación, datos confirmados, secuencia H1/H2/H3, IDs/referencias, extensión de metadatos, imágenes y enlaces. Revisar el HTML servido por PHP y ambos idiomas; no afirmar una auditoría del DOM mirando solo una vista fuente.
+
+Para publicar una web real, sustituir lorem ipsum y Matrix, configurar dominio/canonical/hreflang/sitemap y revisar robots/noindex. La base bloquea rastreo mediante `robots.txt`: eso no equivale a autenticación ni garantiza desindexación. No abrir indexación como parte de una tarea de contenido ordinaria.
+
+## Procedencia y referencias
+
+Se conserva de las skills SEO de otros proyectos formativos la matriz de vectores, los datos confirmados, la adaptación multidioma y la prevención de sobreoptimización. Las reglas de estructura y escalado responden a las instrucciones específicas de este stack.
+
+- [Google: títulos en resultados](https://developers.google.com/search/docs/appearance/title-link).
+- [Google: descripciones y snippets](https://developers.google.com/search/docs/appearance/snippet).
+- [Google: imágenes y ALT](https://developers.google.com/search/docs/appearance/google-images).
+- [MDN: encabezados HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/Heading_Elements).
