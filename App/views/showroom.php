@@ -31,7 +31,7 @@
             <img class="header02__media" src="<?= asset("assets/img/test/dummy02.avif") ?>" alt="Matrix" />
             <div class="header02__content">
                 <p class="header02__eyebrow">Header 02</p>
-                <h3 class="header02__title">Header 02</h3>
+                <h1 class="header02__title">Header 02</h1>
                 <p class="header02__text">
                     Matrix ipsum dolor sit amet, consectetur adipisicing elit. Morpheus quaerat optionem et realitatem.
                 </p>

@@ -24,6 +24,13 @@
         </a>
     </li>
 
+    <li class="enlaces01__item">
+        <a class="enlaces01__link" href="<?= url("/eu/preguntas-frecuentes") ?>" title="Lorem ipsum">
+            <img class="enlaces01__icon" src="<?= asset("assets/img/icons/persons.svg") ?>" alt="" title="" aria-hidden="true" />
+            <span>FAQ</span>
+        </a>
+    </li>
+
     <li class="enlaces01__item enlaces01__item--hasSubmenu" data-nav01-submenu-item>
         <div class="enlaces01__submenuHeader">
             <a class="enlaces01__link enlaces01__link--parent" href="<?= url("/eu/servicios") ?>" title="Lorem ipsum">
